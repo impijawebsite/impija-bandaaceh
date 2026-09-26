@@ -1066,7 +1066,124 @@
 .news-link:hover {
   color: var(--sky);
 }
+/* =========================================================
+   MODAL BERITA
+   ========================================================= */
 
+.news-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+
+  display: none;
+  align-items: center;
+  justify-content: center;
+
+  padding: 30px;
+}
+
+.news-modal.active {
+  display: flex;
+}
+
+.news-modal-overlay {
+  position: absolute;
+  inset: 0;
+
+  background: rgba(36, 81, 109, .72);
+  backdrop-filter: blur(4px);
+}
+
+.news-modal-content {
+  position: relative;
+  z-index: 1;
+
+  width: min(900px, 100%);
+  max-height: 90vh;
+
+  overflow-y: auto;
+
+  background: var(--white);
+  border-radius: var(--radius-md);
+
+  box-shadow: var(--shadow-md);
+}
+
+.news-modal-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+
+  z-index: 2;
+
+  width: 40px;
+  height: 40px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, .95);
+  color: var(--deep);
+
+  font-family: Arial, sans-serif;
+  font-size: 25px;
+  line-height: 1;
+
+  cursor: pointer;
+
+  box-shadow: var(--shadow-sm);
+
+  transition:
+    background .2s ease,
+    color .2s ease;
+}
+
+.news-modal-close:hover {
+  background: var(--deep);
+  color: var(--white);
+}
+
+.news-modal-image {
+  width: 100%;
+  height: 380px;
+
+  object-fit: cover;
+  display: block;
+}
+
+.news-modal-body {
+  padding: 42px;
+}
+
+.news-modal-body h2 {
+  margin: 0;
+
+  color: var(--deep);
+
+  font-family: "Montserrat", sans-serif;
+  font-size: 30px;
+  line-height: 1.3;
+}
+
+.news-modal-body p {
+  margin: 20px 0 0;
+
+  color: var(--muted);
+
+  font-size: 15px;
+  line-height: 1.85;
+}
+
+.news-modal-source {
+  margin-top: 30px;
+  padding-top: 20px;
+
+  border-top: 1px solid var(--border);
+
+  color: var(--muted);
+
+  font-size: 12px;
+}
     .news-empty {
       padding: 80px 30px;
 
@@ -1578,7 +1695,17 @@
       .dorm-grid {
         grid-template-columns: 1fr 1fr;
       }
+.news-card {
+  grid-template-columns: 1fr;
+}
 
+.news-image {
+  min-height: 240px;
+}
+
+.news-content {
+  padding: 30px;
+}
       .documents-intro,
       .news-header,
       .pillars-header {
@@ -1640,7 +1767,53 @@
       .dorm-grid {
         grid-template-columns: 1fr;
       }
+.news-image {
+  min-height: 220px;
+}
 
+.news-content {
+  padding: 25px;
+}
+
+.news-content h3 {
+  font-size: 21px;
+}
+
+.news-footer {
+  align-items: flex-start;
+  flex-direction: column;
+}
+      .news-modal {
+  padding: 16px;
+}
+
+.news-modal-content {
+  max-height: 92vh;
+}
+
+.news-modal-image {
+  height: 220px;
+}
+
+.news-modal-body {
+  padding: 28px 22px;
+}
+
+.news-modal-body h2 {
+  font-size: 22px;
+}
+
+.news-modal-body p {
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.news-modal-close {
+  top: 12px;
+  right: 12px;
+  width: 36px;
+  height: 36px;
+}
       .pdf-viewer {
         height: 500px;
       }
@@ -2996,9 +3169,146 @@
       });
 
     }
+    /* =======================================================
+       NEWS MODAL
+       ======================================================= */
 
+    const newsModal =
+      document.getElementById("newsModal");
+
+    const newsLink =
+      document.querySelector(".news-link");
+
+    const newsModalClose =
+      document.querySelector(".news-modal-close");
+
+    const newsModalOverlay =
+      document.querySelector(".news-modal-overlay");
+
+
+    if (
+      newsModal &&
+      newsLink &&
+      newsModalClose &&
+      newsModalOverlay
+    ) {
+
+      newsLink.addEventListener("click", function(event) {
+
+        event.preventDefault();
+
+        newsModal.classList.add("active");
+
+        document.body.style.overflow = "hidden";
+
+      });
+
+
+      newsModalClose.addEventListener("click", function() {
+
+        newsModal.classList.remove("active");
+
+        document.body.style.overflow = "";
+
+      });
+
+
+      newsModalOverlay.addEventListener("click", function() {
+
+        newsModal.classList.remove("active");
+
+        document.body.style.overflow = "";
+
+      });
+
+    }
   </script>
+<!-- =====================================================
+     MODAL BERITA
+     ===================================================== -->
 
+<div class="news-modal" id="newsModal">
+
+  <div class="news-modal-overlay"></div>
+
+  <div class="news-modal-content">
+
+    <button
+      class="news-modal-close"
+      type="button"
+      aria-label="Tutup berita">
+      &times;
+    </button>
+
+    <img
+      src="mubes-impija-2026.jpg"
+      alt="Musyawarah Besar V IMPIJA Banda Aceh"
+      class="news-modal-image">
+
+    <div class="news-modal-body">
+
+      <div class="news-meta">
+        1 Agustus 2026
+      </div>
+
+      <h2>
+        Arief Effendi Terpilih sebagai Ketua Umum IMPIJA,
+        Bupati Sibral Ajak Mahasiswa Jaga Persatuan
+      </h2>
+
+      <p>
+        Banda Aceh, 1 Agustus 2026 — Arief Effendi terpilih sebagai
+        Ketua Umum Ikatan Mahasiswa Pemuda Pelajar Pidie Jaya (IMPIJA)
+        Banda Aceh periode 2026–2028. Ia terpilih secara demokratis
+        dalam Musyawarah Besar (Mubes) V IMPIJA yang berlangsung di
+        Aula Dinas Sosial Aceh, Sabtu (1/8/2026).
+      </p>
+
+      <p>
+        Mubes V menjadi momentum penting bagi IMPIJA setelah organisasi
+        sempat tidak aktif selama kurang lebih enam tahun. Kegiatan ini
+        dihadiri Bupati Pidie Jaya H. Sibral Malasyi, M.A., Ketua Umum
+        Formas Banda Aceh H. Ihsanuddin MZ, tokoh masyarakat, alumni,
+        serta delegasi dari delapan kecamatan di Pidie Jaya.
+      </p>
+
+      <p>
+        Bupati Pidie Jaya H. Sibral Malasyi mengapresiasi pelaksanaan
+        Mubes V dan mengajak seluruh mahasiswa serta kader IMPIJA untuk
+        menjaga persatuan dan menyusun program kerja yang nyata,
+        terukur, serta bermanfaat bagi masyarakat.
+      </p>
+
+      <p>
+        Arief Effendi menyampaikan terima kasih atas kepercayaan yang
+        diberikan kepadanya. Ia menegaskan bahwa amanah tersebut
+        merupakan tanggung jawab bersama seluruh putra-putri Pidie Jaya
+        yang sedang menuntut ilmu maupun mengabdikan diri.
+      </p>
+
+      <p>
+        Bersama jajaran pengurus periode 2026–2028, Arief berkomitmen
+        membangun IMPIJA yang transparan, inklusif, dan berintegritas.
+        Sejumlah agenda yang akan didorong antara lain kaderisasi,
+        penguatan silaturahmi, serta program di bidang pendidikan,
+        kesejahteraan, dan pengembangan potensi mahasiswa dan pemuda.
+      </p>
+
+      <p>
+        Ke depan, IMPIJA diharapkan dapat menjadi rumah bersama bagi
+        mahasiswa dan pemuda asal Pidie Jaya di Banda Aceh sekaligus
+        menjadi bagian dari kekuatan yang mendukung kemajuan daerah.
+      </p>
+
+      <div class="news-modal-source">
+        Sumber: SerambiNews.com
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
 </body>
 </html>
 ```
