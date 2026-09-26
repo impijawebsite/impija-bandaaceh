@@ -3173,55 +3173,59 @@
        NEWS MODAL
        ======================================================= */
 
-    const newsModal =
-      document.getElementById("newsModal");
+    document.addEventListener("DOMContentLoaded", function() {
 
-    const newsLink =
-      document.querySelector(".news-link");
+      const newsModal =
+        document.getElementById("newsModal");
 
-    const newsModalClose =
-      document.querySelector(".news-modal-close");
+      const newsLink =
+        document.querySelector(".news-link");
 
-    const newsModalOverlay =
-      document.querySelector(".news-modal-overlay");
+      const newsModalClose =
+        document.querySelector(".news-modal-close");
 
-
-    if (
-      newsModal &&
-      newsLink &&
-      newsModalClose &&
-      newsModalOverlay
-    ) {
-
-      newsLink.addEventListener("click", function(event) {
-
-        event.preventDefault();
-
-        newsModal.classList.add("active");
-
-        document.body.style.overflow = "hidden";
-
-      });
+      const newsModalOverlay =
+        document.querySelector(".news-modal-overlay");
 
 
-      newsModalClose.addEventListener("click", function() {
+      if (
+        newsModal &&
+        newsLink &&
+        newsModalClose &&
+        newsModalOverlay
+      ) {
 
-        newsModal.classList.remove("active");
+        newsLink.addEventListener("click", function(event) {
 
-        document.body.style.overflow = "";
+          event.preventDefault();
 
-      });
+          newsModal.classList.add("active");
+
+          document.body.style.overflow = "hidden";
+
+        });
 
 
-      newsModalOverlay.addEventListener("click", function() {
+        newsModalClose.addEventListener("click", function() {
 
-        newsModal.classList.remove("active");
+          newsModal.classList.remove("active");
 
-        document.body.style.overflow = "";
+          document.body.style.overflow = "";
 
-      });
+        });
 
-    }
+
+        newsModalOverlay.addEventListener("click", function() {
+
+          newsModal.classList.remove("active");
+
+          document.body.style.overflow = "";
+
+        });
+
+      }
+
+    });
   </script>
 <!-- =====================================================
      MODAL BERITA
