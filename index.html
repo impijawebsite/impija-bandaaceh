@@ -953,6 +953,119 @@
       gap: 30px;
       margin-bottom: 45px;
     }
+    .news-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+
+  box-shadow: var(--shadow-sm);
+
+  transition:
+    transform .3s ease,
+    box-shadow .3s ease;
+}
+
+.news-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.news-image {
+  min-height: 360px;
+  overflow: hidden;
+  background: var(--light-blue);
+}
+
+.news-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+
+  transition: transform .5s ease;
+}
+
+.news-card:hover .news-image img {
+  transform: scale(1.03);
+}
+
+.news-content {
+  padding: 42px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.news-meta {
+  margin-bottom: 14px;
+
+  color: var(--sky);
+
+  font-family: "Montserrat", sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.news-content h3 {
+  margin: 0;
+
+  color: var(--deep);
+
+  font-family: "Montserrat", sans-serif;
+  font-size: 25px;
+  line-height: 1.3;
+}
+
+.news-content p {
+  margin: 18px 0 0;
+
+  color: var(--muted);
+
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.news-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+
+  margin-top: 30px;
+  padding-top: 20px;
+
+  border-top: 1px solid var(--border);
+}
+
+.news-source {
+  color: var(--muted);
+
+  font-size: 12px;
+}
+
+.news-link {
+  display: inline-flex;
+  align-items: center;
+
+  color: var(--deep);
+
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  text-decoration: none;
+
+  transition: color .2s ease;
+}
+
+.news-link:hover {
+  color: var(--sky);
+}
 
     .news-empty {
       padding: 80px 30px;
@@ -2323,22 +2436,48 @@
         </div>
 
 
-        <div class="news-empty reveal">
+<article class="news-card reveal">
 
-          <div class="news-empty-mark">
-            IM
-          </div>
+  <div class="news-image">
+    <img
+      src="mubes-impija-2026.jpg"
+      alt="Musyawarah Besar V IMPIJA Banda Aceh">
+  </div>
 
-          <h3>
-            Berita akan segera hadir.
-          </h3>
+  <div class="news-content">
 
-          <p>
-            Halaman ini disiapkan sebagai pusat informasi kegiatan,
-            kabar organisasi, dan aktivitas keluarga besar IMPIJA Banda Aceh.
-          </p>
+    <div class="news-meta">
+      1 Agustus 2026
+    </div>
 
-        </div>
+    <h3>
+      Arief Effendi Terpilih sebagai Ketua Umum IMPIJA,
+      Bupati Sibral Ajak Mahasiswa Jaga Persatuan
+    </h3>
+
+    <p>
+      Arief Effendi terpilih sebagai Ketua Umum IMPIJA Banda Aceh
+      periode 2026–2028 dalam Musyawarah Besar (Mubes) V yang
+      berlangsung di Aula Dinas Sosial Aceh. Mubes ini menjadi
+      momentum penting setelah organisasi sempat tidak aktif selama
+      kurang lebih enam tahun.
+    </p>
+
+    <div class="news-footer">
+
+      <span class="news-source">
+        Sumber: SerambiNews.com
+      </span>
+
+      <a href="#" class="news-link">
+        Baca Selengkapnya
+      </a>
+
+    </div>
+
+  </div>
+
+</article>
 
       </div>
 
