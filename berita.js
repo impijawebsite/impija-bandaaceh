@@ -72,3 +72,210 @@ const beritaIMPIJA = [
   }
 
 ];
+/* =======================================================
+   RENDER BERITA + PAGINATION
+   ======================================================= */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  const newsList = document.getElementById("newsList");
+
+  if (!newsList || !beritaIMPIJA) return;
+
+  const beritaPerHalaman = 3;
+  let halamanAktif = 1;
+
+  function tampilkanBerita() {
+
+    newsList.innerHTML = "";
+
+    const mulai = (halamanAktif - 1) * beritaPerHalaman;
+    const selesai = mulai + beritaPerHalaman;
+
+    const beritaHalaman =
+      beritaIMPIJA.slice(mulai, selesai);
+
+    beritaHalaman.forEach(function (berita, index) {
+
+      const artikel = document.createElement("article");
+
+      artikel.className = "news-card";
+
+      artikel.innerHTML = `
+        <div class="news-image">
+          <img
+            src="${berita.gambar}"
+            alt="${berita.judul}">
+        </div>
+
+        <div class="news-content">
+
+          <div class="news-meta">
+            ${berita.tanggal}
+          </div>
+
+          <h3>
+            ${berita.judul}
+          </h3>
+
+          <p>
+            ${berita.ringkasan}
+          </p>
+
+          <div class="news-footer">
+
+            <span class="news-source">
+              Sumber: ${berita.sumber}
+            </span>
+
+            <a
+              href="#"
+              class="news-link"
+              data-index="${mulai + index}">
+              Baca Selengkapnya
+            </a>
+
+          </div>
+
+        </div>
+      `;
+
+      newsList.appendChild(artikel);
+
+    });
+
+    buatPagination();
+
+    aktifkanLinkBerita();
+
+  }
+
+
+  function buatPagination() {
+
+    const jumlahHalaman =
+      Math.ceil(beritaIMPIJA.length / beritaPerHalaman);
+
+    const paginationLama =
+      document.querySelector(".news-pagination");
+
+    if (paginationLama) {
+      paginationLama.remove();
+    }
+
+    if (jumlahHalaman <= 1) return;
+
+    const pagination =
+      document.createElement("div");
+
+    pagination.className = "news-pagination";
+
+    for (let i = 1; i <= jumlahHalaman; i++) {
+
+      const tombol =
+        document.createElement("button");
+
+      tombol.type = "button";
+
+      tombol.textContent = i;
+
+      if (i === halamanAktif) {
+        tombol.classList.add("active");
+      }
+
+      tombol.addEventListener("click", function () {
+
+        halamanAktif = i;
+
+        tampilkanBerita();
+
+        document
+          .getElementById("berita")
+          .scrollIntoView({
+            behavior: "smooth"
+          });
+
+      });
+
+      pagination.appendChild(tombol);
+
+    }
+
+    newsList.parentNode.appendChild(pagination);
+
+  }
+
+
+  function aktifkanLinkBerita() {
+
+    const links =
+      document.querySelectorAll(".news-link");
+
+    links.forEach(function (link) {
+
+      link.addEventListener("click", function (event) {
+
+        event.preventDefault();
+
+        const index =
+          Number(link.dataset.index);
+
+        bukaModalBerita(index);
+
+      });
+
+    });
+
+  }
+
+
+  function bukaModalBerita(index) {
+
+    const berita =
+      beritaIMPIJA[index];
+
+    if (!berita) return;
+
+    const modal =
+      document.getElementById("newsModal");
+
+    if (!modal) return;
+
+    const gambar =
+      modal.querySelector(".news-modal-image");
+
+    const body =
+      modal.querySelector(".news-modal-body");
+
+    gambar.src = berita.gambar;
+
+    gambar.alt = berita.judul;
+
+    body.innerHTML = `
+      <div class="news-meta">
+        ${berita.tanggal}
+      </div>
+
+      <h2>
+        ${berita.judul}
+      </h2>
+
+      ${berita.isi.map(function (paragraf) {
+        return `<p>${paragraf}</p>`;
+      }).join("")}
+
+      <div class="news-modal-source">
+        Sumber: ${berita.sumber}
+      </div>
+    `;
+
+    modal.classList.add("active");
+
+    document.body.style.overflow = "hidden";
+
+  }
+
+
+  tampilkanBerita();
+
+});
