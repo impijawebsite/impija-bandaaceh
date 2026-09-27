@@ -2497,6 +2497,34 @@
   </div>
 
 </article>
+        <article class="news-card reveal">
+  <div class="news-image">
+    <img src="berita-impija-2.jpeg"
+         alt="Bangkit Setelah Enam Tahun Vakum, IMPIJA Kini Diuji Lewat Kepemimpinan Arief Effendi">
+  </div>
+
+  <div class="news-content">
+    <div class="news-meta">2 Agustus 2026</div>
+
+    <h3>
+      Bangkit Setelah Enam Tahun Vakum, IMPIJA Kini Diuji Lewat Kepemimpinan Arief Effendi
+    </h3>
+
+    <p>
+      Setelah enam tahun vakum, IMPIJA Banda Aceh kembali membangun
+      konsolidasi organisasi melalui kepemimpinan baru periode 2026–2028.
+      Arief Effendi dipercaya memimpin organisasi setelah pelaksanaan
+      Musyawarah Besar V IMPIJA.
+    </p>
+
+<div class="news-footer">
+  <span class="news-source">Sumber: Atjeh Watch</span>
+  <a href="#berita-2" class="news-link">
+    Baca Selengkapnya
+  </a>
+</div>
+  </div>
+</article>
 
       </div>
 
@@ -3021,56 +3049,87 @@
 
     document.addEventListener("DOMContentLoaded", function() {
 
+           const newsLinks =
+        document.querySelectorAll(".news-link");
+
       const newsModal =
         document.getElementById("newsModal");
 
-      const newsLink =
-        document.querySelector(".news-link");
+      const newsModal2 =
+        document.getElementById("newsModal2");
 
-      const newsModalClose =
-        document.querySelector(".news-modal-close");
+      const newsModalCloses =
+        document.querySelectorAll(".news-modal-close");
 
-      const newsModalOverlay =
-        document.querySelector(".news-modal-overlay");
+      const newsModalOverlays =
+        document.querySelectorAll(".news-modal-overlay");
 
 
-      if (
-        newsModal &&
-        newsLink &&
-        newsModalClose &&
-        newsModalOverlay
-      ) {
+      newsLinks.forEach(function(newsLink) {
 
         newsLink.addEventListener("click", function(event) {
 
           event.preventDefault();
 
-          newsModal.classList.add("active");
+          const target =
+            newsLink.getAttribute("href");
 
-          document.body.style.overflow = "hidden";
+          const modal =
+            target === "#berita-2"
+              ? newsModal2
+              : newsModal;
 
-        });
+          if (modal) {
 
+            modal.classList.add("active");
 
-        newsModalClose.addEventListener("click", function() {
+            document.body.style.overflow = "hidden";
 
-          newsModal.classList.remove("active");
-
-          document.body.style.overflow = "";
-
-        });
-
-
-        newsModalOverlay.addEventListener("click", function() {
-
-          newsModal.classList.remove("active");
-
-          document.body.style.overflow = "";
+          }
 
         });
 
-      }
+      });
 
+
+      newsModalCloses.forEach(function(closeButton) {
+
+        closeButton.addEventListener("click", function() {
+
+          const modal =
+            closeButton.closest(".news-modal");
+
+          if (modal) {
+
+            modal.classList.remove("active");
+
+            document.body.style.overflow = "";
+
+          }
+
+        });
+
+      });
+
+
+      newsModalOverlays.forEach(function(overlay) {
+
+        overlay.addEventListener("click", function() {
+
+          const modal =
+            overlay.closest(".news-modal");
+
+          if (modal) {
+
+            modal.classList.remove("active");
+
+            document.body.style.overflow = "";
+
+          }
+
+        });
+
+      });
     });
   </script>
 <!-- =====================================================
@@ -3159,8 +3218,78 @@
   </div>
 
 </div>
-  <script src="struktur.js"></script>
-  <script>
+
+
+<!-- =====================================================
+     MODAL BERITA 2
+     ===================================================== -->
+
+<div class="news-modal" id="newsModal2">
+
+  <div class="news-modal-overlay"></div>
+
+  <div class="news-modal-content">
+
+    <button
+      class="news-modal-close"
+      type="button"
+      aria-label="Tutup berita">
+      &times;
+    </button>
+
+    <img
+      src="berita-impija-2.jpeg"
+      alt="Bangkit Setelah Enam Tahun Vakum, IMPIJA Kini Diuji Lewat Kepemimpinan Arief Effendi"
+      class="news-modal-image">
+
+    <div class="news-modal-body">
+
+      <div class="news-meta">
+        2 Agustus 2026
+      </div>
+
+      <h2>
+        Bangkit Setelah Enam Tahun Vakum, IMPIJA Kini Diuji Lewat Kepemimpinan Arief Effendi
+      </h2>
+
+      <p>
+        Setelah enam tahun vakum, Ikatan Mahasiswa Pemuda Pelajar Pidie Jaya
+        (IMPIJA) Banda Aceh kembali membangun konsolidasi organisasi melalui
+        kepemimpinan baru periode 2026–2028.
+      </p>
+
+      <p>
+        Arief Effendi dipercaya memimpin IMPIJA setelah terpilih dalam
+        Musyawarah Besar (Mubes) V yang berlangsung di Banda Aceh pada
+        1 Agustus 2026.
+      </p>
+
+      <p>
+        Momentum tersebut menjadi bagian penting dalam upaya menghidupkan
+        kembali aktivitas organisasi sekaligus memperkuat komunikasi,
+        kekeluargaan, dan kaderisasi mahasiswa serta pemuda asal Pidie Jaya
+        di Banda Aceh.
+      </p>
+
+      <p>
+        Kepemimpinan baru IMPIJA periode 2026–2028 dihadapkan pada agenda
+        konsolidasi internal dan penyusunan program yang dapat menjawab
+        kebutuhan mahasiswa dan pemuda Pidie Jaya.
+      </p>
+
+      <div class="news-modal-source">
+        Sumber: Atjeh Watch
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<script src="struktur.js"></script>
+<script>
 /* =======================================================
    RENDER STRUKTUR ORGANISASI
    ======================================================= */
