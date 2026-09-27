@@ -126,7 +126,36 @@ const beritaIMPIJA = [
    ======================================================= */
 
 beritaIMPIJA.sort(function (a, b) {
-  return new Date(b.tanggal) - new Date(a.tanggal);
+
+  const bulan = {
+    Januari: 0,
+    Februari: 1,
+    Maret: 2,
+    April: 3,
+    Mei: 4,
+    Juni: 5,
+    Juli: 6,
+    Agustus: 7,
+    September: 8,
+    Oktober: 9,
+    November: 10,
+    Desember: 11
+  };
+
+  function ubahTanggal(tanggal) {
+
+    const bagian = tanggal.split(" ");
+
+    return new Date(
+      Number(bagian[2]),
+      bulan[bagian[1]],
+      Number(bagian[0])
+    );
+
+  }
+
+  return ubahTanggal(b.tanggal) - ubahTanggal(a.tanggal);
+
 });
 
 
