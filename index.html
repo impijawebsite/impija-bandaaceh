@@ -2258,99 +2258,7 @@
 
         </div>
 
-
-        <div class="dph-chart">
-
-          <!-- SEKJEN -->
-
-          <div class="dph-column reveal">
-
-            <div class="dph-main-position">
-              Sekretaris Jenderal
-            </div>
-
-            <div class="dph-main-name">
-              Muhammad Tegar
-            </div>
-
-            <div class="dph-subtitle">
-              Wasekjend
-            </div>
-
-            <ul class="dph-members">
-
-              <li>Asyfha Azkia, S.Or</li>
-              <li>Mirza Achyar</li>
-              <li>Alvi Farisyi</li>
-              <li>Nurul Sufia</li>
-              <li>Haura Zakia</li>
-
-            </ul>
-
-          </div>
-
-
-          <!-- KETUA UMUM -->
-
-          <div class="dph-column center reveal reveal-delay-1">
-
-            <div class="dph-center-emphasis"></div>
-
-            <div class="dph-main-position">
-              Ketua Umum
-            </div>
-
-            <div class="dph-main-name">
-              Arief Effendi, S.Pd
-            </div>
-
-            <div class="dph-subtitle">
-              Wakil Ketua
-            </div>
-
-            <ul class="dph-members">
-
-              <li>Heri Maulana, S.AP</li>
-              <li>Fauzul Mutaqqin, SE</li>
-              <li>Tasya Irwana</li>
-              <li>Aulyanda Hardian</li>
-              <li>Muhammad Syaafi, S.Hum</li>
-
-            </ul>
-
-          </div>
-
-
-          <!-- BENDAHARA -->
-
-          <div class="dph-column reveal reveal-delay-2">
-
-            <div class="dph-main-position">
-              Bendahara Umum
-            </div>
-
-            <div class="dph-main-name">
-              Alaisyi
-            </div>
-
-            <div class="dph-subtitle">
-              Wabendum
-            </div>
-
-            <ul class="dph-members">
-
-              <li>Siti Sarah</li>
-              <li>Mutia Dhafira</li>
-              <li>Raifa Asyura</li>
-              <li>Inayatu Ziizzati</li>
-              <li>T. Ayyash Abdul Aziz</li>
-
-            </ul>
-
-          </div>
-
-        </div>
-
+        <div class="dph-chart" id="dphChart"></div>
 
         <!-- BIDANG -->
 
@@ -2367,69 +2275,7 @@
         </div>
 
 
-        <div class="fields-grid">
-
-          <div class="field-card reveal">
-            <div class="field-number">01</div>
-            <h3>Ketua Bidang Organisasi dan Kaderisasi</h3>
-            <p>Muzammil</p>
-          </div>
-
-          <div class="field-card reveal reveal-delay-1">
-            <div class="field-number">02</div>
-            <h3>Ketua Bidang Kajian Riset dan Pendidikan</h3>
-            <p>Afzal Rizki</p>
-          </div>
-
-          <div class="field-card reveal">
-            <div class="field-number">03</div>
-            <h3>Ketua Bidang Pemberdayaan Perempuan dan Perlindungan Anak</h3>
-            <p>Alini Ulfalisa</p>
-          </div>
-
-          <div class="field-card reveal reveal-delay-1">
-            <div class="field-number">04</div>
-            <h3>Ketua Bidang Politik, Hukum dan HAM</h3>
-            <p>Fajar</p>
-          </div>
-
-          <div class="field-card reveal">
-            <div class="field-number">05</div>
-            <h3>Ketua Bidang Ekonomi dan Kewirausahaan</h3>
-            <p>Raisha Aurellia</p>
-          </div>
-
-          <div class="field-card reveal reveal-delay-1">
-            <div class="field-number">06</div>
-            <h3>Ketua Bidang Olahraga dan Kesenian</h3>
-            <p>M. Rizki Ramadhan, A.Md. Farm</p>
-          </div>
-
-          <div class="field-card reveal">
-            <div class="field-number">07</div>
-            <h3>Ketua Bidang Komunikasi dan Informasi</h3>
-            <p>Zalva Zuhriah</p>
-          </div>
-
-          <div class="field-card reveal reveal-delay-1">
-            <div class="field-number">08</div>
-            <h3>Ketua Bidang Keagamaan dan Kebudayaan</h3>
-            <p>Jaisyullah, SE</p>
-          </div>
-
-          <div class="field-card reveal">
-            <div class="field-number">09</div>
-            <h3>Ketua Bidang Hubungan Antar Lembaga</h3>
-            <p>Navis Aulia</p>
-          </div>
-
-          <div class="field-card reveal reveal-delay-1">
-            <div class="field-number">10</div>
-            <h3>Ketua Bidang Sosial dan Masyarakat</h3>
-            <p>Raudatul Asyikin, S.K.M</p>
-          </div>
-
-        </div>
+<div class="fields-grid" id="fieldsGrid"></div>
 
       </div>
 
@@ -3314,6 +3160,125 @@
 
 </div>
   <script src="struktur.js"></script>
+  <script>
+/* =======================================================
+   RENDER STRUKTUR ORGANISASI
+   ======================================================= */
+
+const dphChart = document.getElementById("dphChart");
+const fieldsGrid = document.getElementById("fieldsGrid");
+
+if (dphChart && fieldsGrid && typeof strukturIMPIJA !== "undefined") {
+
+  const createMemberList = (members) => {
+    return `
+      <ul class="dph-members">
+        ${members.map(name => `<li>${name}</li>`).join("")}
+      </ul>
+    `;
+  };
+
+
+  dphChart.innerHTML = `
+
+    <!-- SEKJEN -->
+
+    <div class="dph-column reveal">
+
+      <div class="dph-main-position">
+        ${strukturIMPIJA.sekretarisJenderal.jabatan}
+      </div>
+
+      <div class="dph-main-name">
+        ${strukturIMPIJA.sekretarisJenderal.nama}
+      </div>
+
+      <div class="dph-subtitle">
+        Wasekjend
+      </div>
+
+      ${createMemberList(strukturIMPIJA.wakilSekretarisJenderal)}
+
+    </div>
+
+
+    <!-- KETUA UMUM -->
+
+    <div class="dph-column center reveal reveal-delay-1">
+
+      <div class="dph-center-emphasis"></div>
+
+      <div class="dph-main-position">
+        ${strukturIMPIJA.ketuaUmum.jabatan}
+      </div>
+
+      <div class="dph-main-name">
+        ${strukturIMPIJA.ketuaUmum.nama}
+      </div>
+
+      <div class="dph-subtitle">
+        Wakil Ketua
+      </div>
+
+      ${createMemberList(strukturIMPIJA.wakilKetua)}
+
+    </div>
+
+
+    <!-- BENDAHARA -->
+
+    <div class="dph-column reveal reveal-delay-2">
+
+      <div class="dph-main-position">
+        ${strukturIMPIJA.bendaharaUmum.jabatan}
+      </div>
+
+      <div class="dph-main-name">
+        ${strukturIMPIJA.bendaharaUmum.nama}
+      </div>
+
+      <div class="dph-subtitle">
+        Wabendum
+      </div>
+
+      ${createMemberList(strukturIMPIJA.wakilBendaharaUmum)}
+
+    </div>
+
+  `;
+
+
+  fieldsGrid.innerHTML = strukturIMPIJA.bidang.map((bidang, index) => {
+
+    const delay =
+      index % 2 === 1
+        ? "reveal-delay-1"
+        : "";
+
+    return `
+
+      <div class="field-card reveal ${delay}">
+
+        <div class="field-number">
+          ${bidang.nomor}
+        </div>
+
+        <h3>
+          ${bidang.jabatan}
+        </h3>
+
+        <p>
+          ${bidang.nama}
+        </p>
+
+      </div>
+
+    `;
+
+  }).join("");
+
+}
+</script>
 </body>
 </html>
 ```
