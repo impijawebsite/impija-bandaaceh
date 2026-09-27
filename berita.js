@@ -73,6 +73,15 @@ const beritaIMPIJA = [
 
 ];
 /* =======================================================
+   URUTKAN BERITA TERBARU
+   ======================================================= */
+
+beritaIMPIJA.sort(function (a, b) {
+  return new Date(b.tanggal) - new Date(a.tanggal);
+});
+
+
+/* =======================================================
    RENDER BERITA + PAGINATION
    ======================================================= */
 
