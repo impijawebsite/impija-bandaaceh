@@ -1066,6 +1066,43 @@
 .news-link:hover {
   color: var(--sky);
 }
+    .news-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 35px;
+}
+
+.news-pagination button {
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--white);
+  color: var(--deep);
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+  transition:
+    background .2s ease,
+    color .2s ease,
+    border-color .2s ease,
+    transform .2s ease;
+}
+
+.news-pagination button:hover {
+  border-color: var(--sky);
+  color: var(--sky);
+  transform: translateY(-2px);
+}
+
+.news-pagination button.active {
+  background: var(--deep);
+  border-color: var(--deep);
+  color: var(--white);
+}
 /* =========================================================
    MODAL BERITA
    ========================================================= */
