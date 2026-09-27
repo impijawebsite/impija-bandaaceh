@@ -69,6 +69,55 @@ const beritaIMPIJA = [
 
       `Kepengurusan yang baru dituntut membuktikan bahwa kebangkitan organisasi tidak berhenti pada hasil Musyawarah Besar, tetapi diwujudkan melalui kerja nyata, konsolidasi yang berkelanjutan, dan kontribusi yang dapat dirasakan oleh mahasiswa maupun masyarakat Pidie Jaya.`
     ]
+  },
+
+  {
+    tanggal: "21 Agustus 2026",
+    judul:
+      "Kabar Baik! Pemkab Pidie Jaya Salurkan Beasiswa Tugas Akhir untuk Mahasiswa D-IV dan S-1, Cek Syaratnya di Sini!",
+    gambar: "beasiswa-2026.jpg",
+    sumber: "Pemkab Pidie Jaya",
+    ringkasan:
+      "Pemerintah Kabupaten Pidie Jaya membuka pengajuan bantuan beasiswa tugas akhir bagi mahasiswa asal Pidie Jaya yang sedang menyelesaikan pendidikan pada jenjang D-IV dan S-1. Pengajuan dibuka mulai 20 Agustus sampai dengan 30 September 2026.",
+    isi: [
+      `Meureudu — Pemerintah Kabupaten Pidie Jaya melalui Sekretariat Daerah membuka pengajuan bantuan beasiswa tugas akhir bagi mahasiswa asal Pidie Jaya yang sedang menyelesaikan pendidikan pada jenjang D-IV dan S-1. Pengajuan ditujukan langsung kepada Bupati Pidie Jaya berdasarkan surat pemberitahuan Nomor 400.3.1/445/2026.`,
+
+      `Pengajuan bantuan beasiswa tugas akhir dibuka mulai tanggal 20 Agustus sampai dengan 30 September 2026. Berkas pengajuan disampaikan secara langsung melalui Bagian Keistimewaan dan Kesejahteraan Rakyat (Kesra) Sekretariat Daerah Kabupaten Pidie Jaya.`,
+
+      `Adapun persyaratan dan dokumen yang harus dilengkapi adalah sebagai berikut:`,
+
+      `<strong>1.</strong> Surat permohonan yang ditujukan kepada Bupati Pidie Jaya c.q. Kabag Kesra.`,
+
+      `<strong>2.</strong> Surat pernyataan bukan Aparatur Sipil Negara (ASN) bermeterai Rp10.000.`,
+
+      `<strong>3.</strong> Surat pernyataan belum pernah menerima bantuan beasiswa dari Pemerintah Kabupaten Pidie Jaya bermeterai Rp10.000.`,
+
+      `<strong>4.</strong> Surat pernyataan bersedia mengembalikan dana apabila memberikan keterangan yang tidak benar, bermeterai Rp10.000.`,
+
+      `<strong>5.</strong> Fotokopi Kartu Tanda Penduduk (KTP) Pidie Jaya dan Kartu Keluarga (KK).`,
+
+      `<strong>6.</strong> Fotokopi Buku Rekening Bank Aceh.`,
+
+      `<strong>7.</strong> Pas foto berwarna ukuran 3x4 sebanyak 2 (dua) lembar.`,
+
+      `<strong>8.</strong> Asli Surat Keterangan Domisili dari Geuchik.`,
+
+      `<strong>9.</strong> Asli Surat Keterangan Kurang Mampu dari Geuchik, lengkap dengan keterangan peringkat kesejahteraan keluarga desil 1 sampai dengan desil 5 dari data terpadu kesejahteraan sosial/data kemiskinan Dinas Sosial.`,
+
+      `<strong>10.</strong> Asli Surat Aktif Kuliah dari Perguruan Tinggi serta fotokopi Kartu Tanda Mahasiswa (KTM).`,
+
+      `<strong>11.</strong> Fotokopi transkrip nilai semester 1 sampai semester terakhir yang telah dilegalisir.`,
+
+      `<strong>12.</strong> Asli SK Pembimbing Tugas Akhir beserta proposal penyusunan tugas akhir yang telah disetujui Dosen Pembimbing.`,
+
+      `<strong>13.</strong> Laporan pertanggungjawaban dari mahasiswa yang akan diserahkan setelah ditetapkan sebagai penerima bantuan.`,
+
+      `Bantuan beasiswa tugas akhir ini menjadi salah satu bentuk perhatian Pemerintah Kabupaten Pidie Jaya terhadap mahasiswa asal daerah yang sedang menyelesaikan pendidikan pada jenjang D-IV dan S-1. Program tersebut diharapkan dapat membantu mahasiswa dalam menyelesaikan tahapan akhir studinya.`,
+
+      `Mahasiswa yang berminat dan memenuhi seluruh ketentuan diharapkan memperhatikan kelengkapan dokumen serta batas waktu penyerahan berkas. Pengajuan permohonan dilakukan melalui Bagian Keistimewaan dan Kesejahteraan Rakyat (Kesra) Sekretariat Daerah Kabupaten Pidie Jaya sesuai dengan ketentuan yang telah ditetapkan.`,
+
+      `Dengan adanya program ini, mahasiswa tingkat akhir asal Pidie Jaya dapat memanfaatkan kesempatan yang tersedia dengan memastikan seluruh persyaratan telah dipenuhi sebelum berkas diserahkan.`
+    ]
   }
 
 ];
