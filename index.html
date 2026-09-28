@@ -2624,7 +2624,10 @@
             Sampaikan Aspirasi
           </h3>
 
-          <form id="aspirationForm">
+          <form
+  id="aspirationForm"
+  action="https://formspree.io/f/mkjgplre"
+  method="POST">
 
             <div class="form-group">
 
@@ -2995,22 +2998,6 @@
        ASPIRATION FORM
        ======================================================= */
 
-    const aspirationForm =
-      document.getElementById("aspirationForm");
-
-    if (aspirationForm) {
-
-      aspirationForm.addEventListener("submit", function(event) {
-
-        event.preventDefault();
-
-        alert(
-          "Form aspirasi sudah siap. Sistem pengiriman akan dihubungkan pada tahap berikutnya."
-        );
-
-      });
-
-    }
     /* =======================================================
        NEWS MODAL
        ======================================================= */
